@@ -30,7 +30,7 @@ end
 
 
 def draw?
-  if self.won? != false
+  if self.won? != nil
     false 
   elsif self.board.full? == false 
     return false 

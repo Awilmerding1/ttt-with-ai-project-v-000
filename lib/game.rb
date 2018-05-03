@@ -20,20 +20,14 @@ class Game
     end
   end
   
-  def won?
-    WIN_COMBINATIONS.any? do |array|
-      cell_one = self.board.cells[array[0]]
-      cell_two = self.board.cells[array[1]]
-      cell_three = self.board.cells[array[2]]
-      if cell_one == "X" && cell_two == "X" && cell_three == "X"
-       return array
-      elsif cell_one == "O" && cell_two == "O" && cell_three == "O"
-       return array
-     else 
-       false
-     end
-    end
-  end
+def won?     
+    WIN_COMBINATIONS.detect do |combo|       
+      @board.cells[combo[0]] == @board.cells[combo[1]] && 
+      @board.cells[combo[0]] == @board.cells[combo[2]] && 
+      @board.taken?(combo[0] + 1) 
+    end   
+end
+
 
 def draw?
   if self.won? != false

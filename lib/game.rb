@@ -61,7 +61,6 @@ end
 end
 
 def turn 
-   
   input = self.current_player.move(board)
   if self.board.valid_move?(input) 
      self.board.update(input, current_player)

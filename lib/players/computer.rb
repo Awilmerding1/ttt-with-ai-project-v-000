@@ -14,7 +14,6 @@ module Players
        elsif board.cells.count == 3 
         if board.taken?("1")
           9.to_s 
-<<<<<<< HEAD
         elsif board.taken?("9")
           1.to_s
         elsif board.taken?("3")

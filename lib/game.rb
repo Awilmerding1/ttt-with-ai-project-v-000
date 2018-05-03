@@ -61,13 +61,7 @@ end
 end
 
 def turn 
-<<<<<<< HEAD
    
-=======
-  #if self.current_player.class == Players::Human
-   # puts "Please enter 1-9:"
-  #end
->>>>>>> 625ffb64e124f6634c27014b0f3bf9aabb2bff6c
   input = self.current_player.move(board)
   if self.board.valid_move?(input) 
      self.board.update(input, current_player)
@@ -75,14 +69,12 @@ def turn
   elsif !self.board.valid_move?(input)
       if self.current_player.class == Players::Human
       puts "That position is already taken." 
-<<<<<<< HEAD
       puts "Please enter 1-9:"
-=======
->>>>>>> 625ffb64e124f6634c27014b0f3bf9aabb2bff6c
       end
     self.turn
   end
 end
+
 
 def play 
   self.board.display

@@ -80,7 +80,6 @@ def play
   until self.over?
     puts "Please enter 1-9:"
     self.turn 
-    binding.pry
   end
   if self.winner 
     puts "Congratulations #{winner}!"

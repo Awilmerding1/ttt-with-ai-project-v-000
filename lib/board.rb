@@ -31,15 +31,10 @@ class Board
     end
   end
   
-  def turn_count
-    array = []
-    self.cells.each do |cell|
-      if cell == "X" || cell == "O"
-        array << cell 
-      end
-    end
-    array.length
-  end
+def turn_count   
+  cells.count { |cell| cell == "X" || cell == "O" } 
+end
+
   
   def taken?(input)
     if self.cells[input.to_i-1] != " "

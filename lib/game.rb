@@ -40,7 +40,7 @@ def draw?
 end
   
   def over?
-    if self.draw? == true || self.won? != false 
+    if self.draw? == true || self.won? != nil 
       true 
     else 
       false

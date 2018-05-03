@@ -78,14 +78,14 @@ end
 def play 
   self.board.display
   until self.over?
-  puts "Please enter 1-9:"
-  self.turn 
+    puts "Please enter 1-9:"
+    self.turn 
   end
   if self.winner 
-  puts "Congratulations #{winner}!"
+    puts "Congratulations #{winner}!"
   elsif self.draw?
-  puts "Cat's Game!"
-end
+    puts "Cat's Game!"
+  end
 end
 
 def self.intro 

@@ -81,7 +81,7 @@ def play
     puts "Please enter 1-9:"
     self.turn 
   end
-  if self.winner 
+  if self.winner != nil
     puts "Congratulations #{winner}!"
   elsif self.draw?
     puts "Cat's Game!"

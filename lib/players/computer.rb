@@ -14,6 +14,7 @@ module Players
        elsif board.cells.count == 3 
         if board.taken?("1")
           9.to_s 
+<<<<<<< HEAD
         elsif board.taken?("9")
           1.to_s
         elsif board.taken?("3")
@@ -28,6 +29,19 @@ module Players
       else 
            rand(1..9).to_s
          end
+=======
+      #   elsif board.taken?("9")
+      #     1.to_s
+      #   elsif board.taken?("3")
+      #     7.to_s
+      #   elsif board.taken?("7")
+      #     3.to_s
+      #   else 
+      #     [1,3,7,9].sample.to_s
+        end  
+      else 
+        rand(1..9).to_s
+>>>>>>> 625ffb64e124f6634c27014b0f3bf9aabb2bff6c
     end
    
   

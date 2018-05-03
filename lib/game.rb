@@ -55,7 +55,7 @@ def winner
     elsif  won? == array && winner == "O" 
       return "O"
     elsif won? == nil 
-      return false
+      return nil
     end
 end
 end

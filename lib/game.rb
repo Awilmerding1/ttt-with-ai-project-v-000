@@ -20,17 +20,23 @@ class Game
     end
   end
   
-def won?     
-    WIN_COMBINATIONS.detect do |combo|       
-      @board.cells[combo[0]] == @board.cells[combo[1]] && 
-      @board.cells[combo[0]] == @board.cells[combo[2]] && 
-      @board.taken?(combo[0] + 1) 
-    end   
-end
-
+  def won?
+    WIN_COMBINATIONS.any? do |array|
+      cell_one = self.board.cells[array[0]]
+      cell_two = self.board.cells[array[1]]
+      cell_three = self.board.cells[array[2]]
+      if cell_one == "X" && cell_two == "X" && cell_three == "X"
+       return array
+      elsif cell_one == "O" && cell_two == "O" && cell_three == "O"
+       return array
+     else 
+       false
+     end
+    end
+  end
 
 def draw?
-  if self.won? != nil
+  if self.won? != false
     false 
   elsif self.board.full? == false 
     return false 
@@ -40,7 +46,7 @@ def draw?
 end
   
   def over?
-    if self.draw? == true || self.won? != nil 
+    if self.draw? == true || self.won? != false 
       true 
     else 
       false
@@ -54,13 +60,14 @@ def winner
       return "X"
     elsif  won? == array && winner == "O" 
       return "O"
-    elsif won? == nil 
+    elsif won? == false 
       return nil
     end
 end
 end
 
 def turn 
+   
   input = self.current_player.move(board)
   if self.board.valid_move?(input) 
      self.board.update(input, current_player)
@@ -74,18 +81,17 @@ def turn
   end
 end
 
-
 def play 
   self.board.display
   until self.over?
-    puts "Please enter 1-9:"
-    self.turn 
+  puts "Please enter 1-9:"
+  self.turn 
   end
   if self.winner 
-    puts "Congratulations #{winner}!"
+  puts "Congratulations #{winner}!"
   elsif self.draw?
-    puts "Cat's Game!"
-  end
+  puts "Cat's Game!"
+end
 end
 
 def self.intro 
